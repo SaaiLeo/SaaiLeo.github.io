@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>East Repair Inc.</title>
+        <link rel = "stylesheet" href = "css/style.css">
+    </head>
+
+    <body>
+       <table border = 1 >
+        <tr>
+            <td>East Repair Inc.</td>
+            <td>RECEIPT</td>
+        </tr>
+
+        <tr>
+            <td colspan = "2">
+                <pre>1912 Harvest Lane <br>New York, NY 1210</pre>
+            </td>
+        </tr>
+
+        <td>
+            <table border = 1>
+                <thead>
+                    <th>QTY</th>
+                    <th>DESCRIPTION</th>
+                    <th>UNIT PRICE</th>
+                    <th>AMOUNT</th>
+                </thead>
+
+                <tbody id = "order_list">
+                    
+                </tbody>
+
+                <tfoot style = "text-align: right;">
+
+                    <tr>
+                        <td rowspan="3" colspan="2"></td>
+                        <th>Subtotal</th>
+                        <td><span id = "subtotal" >B0</span></td>
+                    </tr>
+
+                    <tr>
+                        <th>Sales Tax 7%%</th>
+                        <td><span id = "tax" type = "text"></span></td>
+                    </tr>
+
+                    <tr>
+                        <th>TOTAL</th>
+                        <td><span id = "total" type = "text"></span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+
+        <td>
+            <table id = "product-list" border = 1>
+                <td>
+                    <label for = "product">Product:</label>
+                    <select id = "product_select">
+                        <option value = "35">Iced Lemon Tea</option>
+                        <option value = "50">Iced Cuppuchino</option>
+                        <option value = "45">Iced Chocolate</option>
+                    </select> 
+                    <br>
+
+                    <lable for = "quantity">Quantity</lable>
+                    <input id = "quantity" type = "number" min = "1" value = "1">
+                    <br>
+
+                    <button id = "add_button" onclick= "addItem()" >Add</button>
+
+                </td>
+            </table>
+        </td>
+
+       </table> 
+
+       <script>
+        function addItem() {
+            var selectedProduct = document.getElementById("product_select");
+            var selectedProductName = selectedProduct.options[selectedProduct.selectedIndex].text;
+            var selectedProductPrice = parseFloat(selectedProduct.options[selectedProduct.selectedIndex].value);
+            var quantity = document.getElementById("quantity").value;
+            var subtotal = document.getElementById("subtotal");
+            var productTable = document.getElementById("order_list");
+
+            var row = productTable.insertRow(-1);
+            var qty = row.insertCell(0);
+            var description = row.insertCell(1);
+            var unitPrice = row.insertCell(2);
+            var amount = row.insertCell(3);
+
+            qty.innerHTML  = quantity;
+            description.innerHTML = selectedProductName;
+            unitPrice.innerHTML = selectedProductPrice.toFixed(2);
+            var subAmount = (quantity * selectedProductPrice).toFixed(2)
+            amount.innerHTML = "B" + subAmount;
+
+            var subtotalValue = subtotal.innerHTML.substring(1)
+            subtotal.innerHTML = "B" + (parseFloat(subAmount) + parseFloat(subtotalValue))
+
+            var tax = parseFloat(subtotal.innerHTML.substring(1)) * 0.07
+            document.getElementById("tax").textContent = "B"+ tax.toFixed(2);
+
+            document.getElementById("total").textContent = "B" + (parseFloat(tax.toFixed(2)) + parseFloat(subtotal.innerHTML.substring(1)))
+
+            
+        }
+       </script>
+    </body>
+</html>
