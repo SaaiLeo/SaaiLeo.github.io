@@ -9,7 +9,7 @@
 
 body {
     position: relative;
-    min-width: 600px;
+    min-width: 400px;
     background-image: url(img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,4 +56,5 @@ body {
 .navbar a:hover::before {
     width:100%
 }
+
 
