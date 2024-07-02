@@ -104,24 +104,30 @@ input:not(:checked) + label:hover {
 
 .card[for="c1"] {
     background-image: url('./image/cs.webp');
+    background-position: center;
 }
 
 .card[for="c2"] {
     background-image: url('./image/it.webp');
+    background-position: center;
 }
 
 .card[for="c3"] {
     background-image: url('./image/ae.webp');
+    background-position: center;
 }
 
 .card[for="c4"] {
     background-image: url('./image/ece.webp');
+    background-position: center;
 }
 
 .card[for="c5"] {
     background-image: url('./image/mce.webp');
+    background-position: center;
 }
 
 .card[for="c6"] {
     background-image: url('./image/ie.webp');
+    background-position: center;
 }
