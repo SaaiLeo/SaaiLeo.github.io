@@ -1,0 +1,22 @@
+[
+    {
+        "quantity" : 20,
+        "description" : "Car Cover",
+        "unitPrice" : 50,
+        "amount" : 1000
+    },
+
+    {
+        "quantity" : 100,
+        "description" : "Floor Mats",
+        "unitPrice" : 100,
+        "amount" : 10000
+    },
+
+    {
+        "quantity" : 50,
+        "description" : "Dash Cam",
+        "unitPrice" : 500,
+        "amount" : 2500
+    }
+]
